@@ -1,33 +1,53 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;
+
+  /* Minimalistic updates */
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.8);
+
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --text-muted: #a1a1aa;
+
+  --accent-cyan: #0891b2;
+  --accent-purple: #7c3aed;
+  --accent-pink: #db2777;
+
+  --border-subtle: #e4e4e7;
+  --border-strong: #d4d4d8;
+
+  /* Gradients - Subtle */
+  --gradient-main: linear-gradient(135deg, #0891b2, #7c3aed);
+  --gradient-glow: none;
+  /* Removed heavy glow */
+
+  /* Fonts */
+  --font-body: var(--font-inter), sans-serif;
+  --font-heading: var(--font-playfair), serif;
+
+  /* Spacing */
+  --container-width: 1400px;
+  --header-height: 90px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  /* Smooth scroll */
+  scroll-behavior: smooth;
 }
 
 a {
@@ -35,8 +55,53 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Utilities */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 32px;
+  /* Increased padding */
+  width: 100%;
+}
+
+.heading-lg {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  /* Increased from 4rem */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heading-md {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  /* Increased from 2.5rem */
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.text-gradient {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
 }
